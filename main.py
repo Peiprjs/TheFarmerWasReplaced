@@ -1,3 +1,5 @@
+desiredWaterLevel = 0.4
+
 for i in range(get_pos_x()):
 	move(West)
 
@@ -21,7 +23,7 @@ while True:
 				plant(Entities.Tree)
 			else:
 				plant(Entities.Grass)
-			if get_water() < 0.5:
+			if get_water() < desiredWaterLevel:
 				use_item(Items.Water)
 		move(North)
 	move(East)
@@ -35,7 +37,7 @@ while True:
 				plant(Entities.Carrot)
 			else:
 				plant(Entities.Tree)
-			if get_water() < 0.5:
+			if get_water() < desiredWaterLevel:
 				use_item(Items.Water)
 		move(North)
 	move(East)
@@ -49,7 +51,7 @@ while True:
 				if get_ground_type() == Grounds.Grassland:
 						till()
 				plant(Entities.Carrot)
-				if get_water() < 0.5:
+				if get_water() < desiredWaterLevel:
 					use_item(Items.Water)
 			move(North)
 		move(East)
@@ -60,7 +62,7 @@ while True:
 			if measure() >= 7:
 				harvest()
 				plant(Entities.Sunflower)
-				if get_water() < 0.5:
+				if get_water() < desiredWaterLevel:
 					use_item(Items.Water)
 		else:
 			if get_ground_type() == Grounds.Grassland:
