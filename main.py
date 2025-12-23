@@ -5,6 +5,7 @@ desiredWaterLevel = 0.4
 goToBeginning()
 	
 while True:
+	do_a_flip()
 	for i in range(2):
 	# One row of wheat
 		for i in range(get_world_size()):
