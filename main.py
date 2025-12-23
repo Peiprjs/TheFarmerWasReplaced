@@ -1,10 +1,8 @@
+from functions import *
+
 desiredWaterLevel = 0.4
 
-for i in range(get_pos_x()):
-	move(West)
-
-for i in range(get_pos_y()):
-	move(South)
+goToBeginning()
 	
 while True:
 	# One row of wheat
@@ -32,9 +30,7 @@ while True:
 		if can_harvest():
 			harvest()
 			if get_pos_y() % 2 == 0:
-				if get_ground_type() == Grounds.Grassland:
-					till()
-				plant(Entities.Carrot)
+				plantGrassland(Entities.Carrot)
 			else:
 				plant(Entities.Tree)
 			if get_water() < desiredWaterLevel:
@@ -48,9 +44,7 @@ while True:
 			if get_pos_y() % 2 == 0:
 				plant(Entities.Tree)
 			else:
-				if get_ground_type() == Grounds.Grassland:
-					till()
-				plant(Entities.Sunflower)
+				plantGrassland(Entities.Sunflower)
 			if get_water() < desiredWaterLevel:
 				use_item(Items.Water)
 		move(North)
@@ -62,9 +56,7 @@ while True:
 	for i in range(get_world_size()):
 		if can_harvest():
 			harvest()
-			if get_ground_type() == Grounds.Grassland:
-					till()
-			plant(Entities.Carrot)
+			plantGrassland(Entities.Carrot)
 			if get_water() < desiredWaterLevel:
 				use_item(Items.Water)
 		move(North)
@@ -79,9 +71,7 @@ while True:
 				if get_water() < desiredWaterLevel:
 					use_item(Items.Water)
 		else:
-			if get_ground_type() == Grounds.Grassland:
-				till()
-			plant(Entities.Sunflower)
+			plantGrassland(Entities.Sunflower)
 		move(North)
 
 	move(East)
