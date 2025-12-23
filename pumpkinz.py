@@ -11,9 +11,10 @@ while True:
 				
 		if get_water() < desiredWaterLevel:
 			use_item(Items.Water)
-		
+		if pumpkinSize == get_world_size()**2:
+			harvest()
+			pumpkinSize = 0
+	
 		move(North)
 	move(East)
-	if pumpkinSize == 64:
-		harvest()
-		pumpkinSize = 0
+	
