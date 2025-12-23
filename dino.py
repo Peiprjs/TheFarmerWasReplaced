@@ -5,7 +5,7 @@ next_apple = measure()
 current_position = [get_pos_x(), get_pos_y()]
 
 while True:
-	if next_apple is None:
+	if next_apple == None:
 		print("HELP")
 	while get_pos_x() <  next_apple[0]:
 		previous_position = current_position
@@ -38,3 +38,4 @@ while True:
 		goToBeginning()
 		if current_position == [get_pos_x(), get_pos_y()]:
 			change_hat(Hats.Dinosaur_Hat)
+			next_apple = measure()
