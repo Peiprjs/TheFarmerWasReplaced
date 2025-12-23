@@ -20,7 +20,7 @@ while True:
 			if get_pos_y() % 2 == 0:
                 plant(Entities.Tree)
 			else:
-                plant(Entities.Bush)
+                plant(Entities.Grass)
             if get_water() < 0.5:
                 use_item(Items.Water)
         move(North)
@@ -30,7 +30,9 @@ while True:
         if can_harvest():
             harvest()
 			if get_pos_y() % 2 == 0:
-                plant(Entities.Bush)
+				if get_ground_type() == Grounds.Soil:
+					till()
+                plant(Entities.Carrot)
 			else:
                 plant(Entities.Tree)
             if get_water() < 0.5:
