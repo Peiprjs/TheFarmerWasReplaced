@@ -35,6 +35,7 @@ while True:
 		next_apple = measure()
 	
 	if current_position == previous_position:
+		current_position = [get_pos_x(), get_pos_y()]
 		goToBeginning()
 		if current_position == [get_pos_x(), get_pos_y()]:
 			change_hat(Hats.Dinosaur_Hat)
