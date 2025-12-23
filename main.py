@@ -1,16 +1,20 @@
 from functions import *
 
-desiredWaterLevel = 0.4
-
+change_hat(Hats.Wizard_Hat)
 goToBeginning()
 	
 while True:
+	get_pumpkin_requirements(1000000)
+	
+	if get_entity_type() != Entities.Pumpkin:
+		for i in range(get_world_size()):
+			for e in range(get_world_size()):
+				plantGrassland(Entities.Pumpkin)
+				move(North)
+			move(East)
 	for i in range(get_world_size()):
 		for e in range(get_world_size()):
 			harvest()
-			plant(Entities.Cactus)
+			plantGrassland(Entities.Pumpkin)
 			move(North)
-			if get_water() < desiredWaterLevel:
-				use_item(Items.Water)
 		move(East)
-
