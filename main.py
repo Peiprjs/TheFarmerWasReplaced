@@ -57,7 +57,7 @@ while True:
 	# One row of sunflowers
 	for i in range(get_world_size()):
 		if get_entity_type() == Entities.Sunflower:
-			if measure() > 7:
+			if measure() >= 7:
 				harvest()
 				plant(Entities.Sunflower)
 				if get_water() < 0.5:
