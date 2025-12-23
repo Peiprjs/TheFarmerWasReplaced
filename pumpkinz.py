@@ -1,21 +1,25 @@
 from functions import *
 
 desiredWaterLevel = 0.4
-pumpkinSize = 0
+currentPumpkinSize = 0
+desiredPumpkinSize = 5
 goToBeginning()
 
 while True:
-	for i in range(get_world_size()):
-		if pumpkinSize == get_world_size()**2:
-			harvest()
-			pumpkinSize = 0
-		if not plantGrassland(Entities.Pumpkin):
-			pumpkinSize += 1
-				
-		if get_water() < desiredWaterLevel:
-			use_item(Items.Water)
+	for i in range(5):
+		for i in range(5):
+			if currentPumpkinSize == get_world_size()**2:
+				harvest()
+				currentPumpkinSize = 0
+			if not plantGrassland(Entities.Pumpkin):
+				currentPumpkinSize += 1
+					
+			if get_water() < desiredWaterLevel:
+				use_item(Items.Water)
+			
 		
-	
-		move(North)
-	move(East)
+			move(North)
+		for i in range(5):
+			move(North)
+		move(East)
 	
