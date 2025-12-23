@@ -30,7 +30,7 @@ while True:
 		if can_harvest():
 			harvest()
 			if get_pos_y() % 2 == 0:
-				if get_ground_type() == Grounds.Soil:
+				if get_ground_type() == Grounds.Grassland:
 					till()
 				plant(Entities.Carrot)
 			else:
@@ -41,10 +41,31 @@ while True:
 	move(East)
 
 	
-	# One row of carrots
+	# Two rows of carrots
+	for i in range(2):
+		for i in range(get_world_size()):
+			if can_harvest():
+				harvest()
+				if get_ground_type() == Grounds.Grassland:
+						till()
+				plant(Entities.Carrot)
+				if get_water() < 0.5:
+					use_item(Items.Water)
+			move(North)
+		move(East)
+
+	# One row of sunflowers
 	for i in range(get_world_size()):
-		if can_harvest():
-			harvest()
-			plant(Entities.Carrot)
+		if get_entity_type() == Entities.Sunflower:
+			if measure() > 7:
+				harvest()
+				plant(Entities.Sunflower)
+				if get_water() < 0.5:
+					use_item(Items.Water)
+		else:
+			if get_ground_type() == Grounds.Grassland:
+				till()
+			plant(Entities.Sunflower)
 		move(North)
+
 	move(East)
